@@ -11,7 +11,7 @@
 }
 
 .typing-1 {
-  animation-duration: 6s, 0.75s;
+  animation-duration: 8s, 0.75s;
   animation-timing-function: steps(25, end), ease-in-out;
 }
 

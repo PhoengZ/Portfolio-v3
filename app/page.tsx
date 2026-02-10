@@ -1,4 +1,3 @@
-import Navbar from "./components/navbar";
 import "./animate.css";
 import Link from "next/link";
 import { BiLogoGmail } from "react-icons/bi";
@@ -6,12 +5,11 @@ import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main className="grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 flex items-center justify-center py-10 md:py-16">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 gap-10 md:gap-12">
+      <main className="grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 flex items-center justify-center overflow-visible lg:overflow-hidden">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 gap-4 sm:gap-6 md:gap-12 h-full py-4 md:py-0">
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-8 z-10">
             <div className="space-y-3 md:space-y-4 text-center md:text-left">
-              <h1 className="mx-auto sm:mx-0 text-xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 tracking-tight leading-tight typing-1">
+              <h1 className="mx-auto sm:mx-0 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 tracking-tight leading-tight typing-1">
                 Hi, I'm <span className="text-gray-900">Phaolap Kulteera</span>
               </h1>
               <h2 className="mx-auto sm:mx-0 text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 typing-2">
@@ -72,10 +70,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Image/Blob Section */}
           <div className="w-full md:w-1/2 flex justify-center items-center relative animate-floating mt-8 md:mt-0">
             <div className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] relative">
-              {/* Glow Effect */}
               <div className="absolute inset-0 bg-blue-400 blur-3xl opacity-25 rounded-full animate-pulse"></div>
 
               <svg
