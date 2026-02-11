@@ -1,0 +1,45 @@
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiCplusplus,
+  SiGo,
+  SiRust,
+  SiPhp,
+  SiRuby,
+  SiSwift,
+  SiKotlin,
+  SiDart,
+  SiHtml5,
+  SiCss3,
+  SiGnubash,
+  SiJupyter,
+  SiVuedotjs,
+} from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
+import { VscChip } from "react-icons/vsc";
+import { FaC, FaJava } from "react-icons/fa6";
+
+export const IconmapLanguage: Record<string, any> = {
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  Python: SiPython,
+  C: FaC,
+  "C++": SiCplusplus,
+  "C#": TbBrandCSharp,
+  Java: FaJava,
+  Go: SiGo,
+  Rust: SiRust,
+  PHP: SiPhp,
+  Ruby: SiRuby,
+  Swift: SiSwift,
+  Kotlin: SiKotlin,
+  Dart: SiDart,
+  HTML: SiHtml5,
+  CSS: SiCss3,
+  Bash: SiGnubash,
+  Shell: SiGnubash,
+  "Jupyter Notebook": SiJupyter,
+  Verilog: VscChip,
+  Vue: SiVuedotjs,
+};
