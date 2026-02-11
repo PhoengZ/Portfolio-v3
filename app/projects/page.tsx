@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IconmapLanguage } from "../composables/icon";
+import { IconmapLanguage } from "@/lib/composables/icon";
 import { FiCalendar, FiExternalLink } from "react-icons/fi";
 
 interface Project {
