@@ -19,9 +19,7 @@ export default function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       setLoading(true);
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/github/repository`,
-      );
+      const res = await axios.get(`/api/github/repository`);
       setLoading(false);
       setProjects(res.data.data);
     };
