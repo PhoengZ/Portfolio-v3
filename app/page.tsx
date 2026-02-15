@@ -23,12 +23,12 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 w-full">
-              <Link
+              {/* <Link
                 href="/contact"
                 className="px-6 py-2 md:px-8 md:py-3 bg-green-500 text-white font-bold rounded-full shadow-lg border-2 border-green-600 transition-all duration-300 hover:bg-green-600 hover:shadow-xl hover:-translate-y-1 active:scale-95 text-base md:text-lg"
               >
                 Let's Talk
-              </Link>
+              </Link> */}
               <Link
                 href="/projects"
                 className="px-6 py-2 md:px-8 md:py-3 bg-white text-blue-600 font-bold rounded-full shadow-md border-2 border-blue-500 transition-all duration-300 hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 active:scale-95 text-base md:text-lg"
