@@ -5,72 +5,44 @@
 import type { AppRoutes, LayoutRoutes, ParamMap } from "./routes.js";
 import type { ResolvingMetadata, ResolvingViewport } from "next/types.js";
 
-type AppPageConfig<Route extends AppRoutes = AppRoutes> = {
-  default:
-    | React.ComponentType<{ params: Promise<ParamMap[Route]> } & any>
-    | ((
-        props: { params: Promise<ParamMap[Route]> } & any,
-      ) =>
-        | React.ReactNode
-        | Promise<React.ReactNode>
-        | never
-        | void
-        | Promise<void>);
-  generateStaticParams?: (props: {
-    params: ParamMap[Route];
-  }) => Promise<any[]> | any[];
-  generateMetadata?: (
-    props: { params: Promise<ParamMap[Route]> } & any,
-    parent: ResolvingMetadata,
-  ) => Promise<any> | any;
-  generateViewport?: (
-    props: { params: Promise<ParamMap[Route]> } & any,
-    parent: ResolvingViewport,
-  ) => Promise<any> | any;
+/** Component return type for Next.js pages and layouts */
+type ComponentReturn =
+  | React.ReactNode
+  | Promise<React.ReactNode>
+  | never
+  | void
+  | Promise<void>;
+
+/** Props for page components */
+type PageProps<Route extends AppRoutes = AppRoutes> = {
+  params: Promise<ParamMap[Route]>;
+} & any;
+
+/** Props for layout components */
+type LayoutProps<Route extends LayoutRoutes = LayoutRoutes> = {
+  params: Promise<ParamMap[Route]>;
+  children: React.ReactNode;
+} & any;
+
+/** Shared configuration for pages and layouts */
+type BaseConfig<Props> = {
+  default: React.ComponentType<Props> | ((props: Props) => ComponentReturn);
+  generateStaticParams?: (props: { params: Record<string, any> }) => Promise<any[]> | any[];
+  generateMetadata?: (props: Props, parent: ResolvingMetadata) => Promise<any> | any;
+  generateViewport?: (props: Props, parent: ResolvingViewport) => Promise<any> | any;
   metadata?: any;
   viewport?: any;
 };
 
-type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
-  default:
-    | React.ComponentType<LayoutProps<Route>>
-    | ((
-        props: LayoutProps<Route>,
-      ) =>
-        | React.ReactNode
-        | Promise<React.ReactNode>
-        | never
-        | void
-        | Promise<void>);
-  generateStaticParams?: (props: {
-    params: ParamMap[Route];
-  }) => Promise<any[]> | any[];
-  generateMetadata?: (
-    props: { params: Promise<ParamMap[Route]> } & any,
-    parent: ResolvingMetadata,
-  ) => Promise<any> | any;
-  generateViewport?: (
-    props: { params: Promise<ParamMap[Route]> } & any,
-    parent: ResolvingViewport,
-  ) => Promise<any> | any;
-  metadata?: any;
-  viewport?: any;
-};
+type AppPageConfig<Route extends AppRoutes = AppRoutes> = BaseConfig<PageProps<Route>>;
 
-// Validate ../../app/page.tsx
-{
-  type __IsExpected<Specific extends AppPageConfig<"/">> = Specific;
-  const handler = {} as typeof import("../app/page.js");
-  type __Check = __IsExpected<typeof handler>;
-  // @ts-ignore
-  type __Unused = __Check;
+type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = BaseConfig<LayoutProps<Route>>;
+
+// Type validation blocks
+declare module "../app/page.js" {
+  const handler: AppPageConfig<"/">;
 }
 
-// Validate ../../app/layout.tsx
-{
-  type __IsExpected<Specific extends LayoutConfig<"/">> = Specific;
-  const handler = {} as typeof import("../app/layout.js");
-  type __Check = __IsExpected<typeof handler>;
-  // @ts-ignore
-  type __Unused = __Check;
+declare module "../app/layout.js" {
+  const handler: LayoutConfig<"/">;
 }
