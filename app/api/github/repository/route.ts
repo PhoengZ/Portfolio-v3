@@ -120,13 +120,3 @@ export async function GET(req: Request) {
     );
   }
 }
-
-export async function dosomething(){
-  // 
-// 
-// 100000 line 
-// 
-// 
-// 
-  return 
-}
