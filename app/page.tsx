@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import "./animate.css";
 import Link from "next/link";
 import { BiLogoGmail } from "react-icons/bi";
