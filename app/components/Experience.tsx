@@ -50,7 +50,7 @@ export default function Experience() {
   };
 
   return (
-    <section className="w-full py-16 bg-white/50 backdrop-blur-sm z-20 relative border-t border-white/40 shadow-sm" aria-labelledby="experience-heading">
+    <section className="w-full py-16 z-20 relative" aria-labelledby="experience-heading">
       <div className="container mx-auto px-6 sm:px-10 md:px-16 lg:px-24">
         <h2 id="experience-heading" className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-10 text-center tracking-tight drop-shadow-sm">
           Professional <span className="text-blue-600">Experience</span>
