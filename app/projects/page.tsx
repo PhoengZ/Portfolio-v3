@@ -27,7 +27,7 @@ export default function Projects() {
   }, []);
   if (loading) {
     return (
-      <div className="grow flex flex-col justify-start items-center bg-linear-to-b from-blue-600 via-blue-400 to-blue-50 py-12 px-6 sm:px-10 md:px-16 gap-8">
+      <div className="min-h-screen grow flex flex-col justify-start items-center bg-linear-to-b from-blue-600 via-blue-400 to-blue-50 py-12 px-6 sm:px-10 md:px-16 gap-8">
         <div className="max-w-7xl w-full flex flex-col items-center gap-10">
           <h1 className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-lg text-center">
             My <span className="text-gray-900/80">Projects</span>
