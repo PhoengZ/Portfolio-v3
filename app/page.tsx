@@ -7,7 +7,7 @@ import Experience from "./components/Experience";
 export default function Home() {
   return (
     <>
-      <main className="grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-50 overflow-y-auto overflow-x-hidden">
+      <main className="min-h-screen grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-50 overflow-y-auto overflow-x-hidden">
         <section className="min-h-screen lg:min-h-[calc(100vh-64px)] flex items-center justify-center pt-8 pb-16 lg:py-0">
           <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 gap-4 sm:gap-6 md:gap-12 h-full py-4 md:py-0">
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-8 z-10">
