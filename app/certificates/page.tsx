@@ -64,7 +64,7 @@ export default function Certificates() {
   ]);
 
   return (
-    <main className="grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 py-12 px-6 sm:px-10 md:px-16 overflow-y-auto">
+    <main className="min-h-screen grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 py-12 px-6 sm:px-10 md:px-16 overflow-y-auto">
       <div className="container mx-auto">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 text-center mb-12 drop-shadow-sm">
           My <span className="text-blue-700">Certificates</span>

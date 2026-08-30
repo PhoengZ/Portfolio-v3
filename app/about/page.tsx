@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function About() {
   return (
     <>
-      <div className="grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 flex flex-col md:flex-row justify-center items-center py-10 md:py-0 px-6 sm:px-10 md:px-16 lg:px-24 gap-10 md:gap-16">
+      <div className="min-h-screen grow bg-linear-to-b from-blue-400 via-blue-300 to-blue-100 flex flex-col md:flex-row justify-center items-center py-10 md:py-0 px-6 sm:px-10 md:px-16 lg:px-24 gap-10 md:gap-16">
         <div className="w-full md:w-1/2 flex justify-center items-center relative animate-floating z-10">
           <div className="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] relative">
             <div className="absolute inset-0 bg-blue-400 blur-3xl opacity-25 rounded-full animate-pulse"></div>
