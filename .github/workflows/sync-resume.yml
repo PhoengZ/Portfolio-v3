@@ -1,4 +1,4 @@
-name: Sync Resume from Cloudflare R2
+name: Sync Resume from Supabase Storage
 
 on:
   schedule:
@@ -35,8 +35,9 @@ jobs:
 
       - name: Run Resume Sync & Extraction
         env:
-          R2_RESUME_URL: ${{ secrets.R2_RESUME_URL }}
+          SUPABASE_RESUME_URL: ${{ secrets.SUPABASE_RESUME_URL || secrets.R2_RESUME_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: "gemini-3.8-flash"
         run: |
           FORCE_FLAG="${{ inputs.force == true && '--force' || '' }}"
           node scripts/sync-resume.mjs $FORCE_FLAG
@@ -45,17 +46,17 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(resume): update experience and resume from Cloudflare R2 [skip ci]"
+          commit-message: "chore(resume): update experience and resume from Supabase Storage [skip ci]"
           branch: automation/sync-resume-update
           delete-branch: true
-          title: "chore(resume): sync updated resume from Cloudflare R2"
+          title: "chore(resume): sync updated resume from Supabase Storage"
           body: |
             ## 📄 Resume Sync & AI Extraction Report
-            An updated `Resume.pdf` was detected on Cloudflare R2.
+            An updated `Resume.pdf` was detected on Supabase Storage.
             
             ### 🛠️ Changes included:
             - Synchronized `public/Resume.pdf`
-            - Extracted new structured data into `data/experience.json`
+            - Extracted new structured data into `data/experience.json` (powered by Gemini 3.8 Flash)
             - Updated SHA-256 hash cache in `data/resume-hash.txt`
             
             > [!TIP]
