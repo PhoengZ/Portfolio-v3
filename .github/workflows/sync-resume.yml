@@ -1,0 +1,65 @@
+name: Sync Resume from Cloudflare R2
+
+on:
+  schedule:
+    # Run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force extraction even if hash matches'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-resume:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Resume Sync & Extraction
+        env:
+          R2_RESUME_URL: ${{ secrets.R2_RESUME_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          FORCE_FLAG="${{ inputs.force == true && '--force' || '' }}"
+          node scripts/sync-resume.mjs $FORCE_FLAG
+
+      - name: Create Pull Request with Updates
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(resume): update experience and resume from Cloudflare R2 [skip ci]"
+          branch: automation/sync-resume-update
+          delete-branch: true
+          title: "chore(resume): sync updated resume from Cloudflare R2"
+          body: |
+            ## 📄 Resume Sync & AI Extraction Report
+            An updated `Resume.pdf` was detected on Cloudflare R2.
+            
+            ### 🛠️ Changes included:
+            - Synchronized `public/Resume.pdf`
+            - Extracted new structured data into `data/experience.json`
+            - Updated SHA-256 hash cache in `data/resume-hash.txt`
+            
+            > [!TIP]
+            > Review the diff below and merge when ready. Vercel will automatically redeploy upon merge.
+          labels: |
+            automated-pr
+            resume

@@ -1,0 +1,49 @@
+{
+  "lastUpdated": "2026-10-23T21:16:00.000Z",
+  "resumeHash": "6e71b0eca637aed33d4337fda2c0df455952aebf3665086177328878a9509ed8",
+  "experiences": [
+    {
+      "company": "Yuanta Securities Thailand",
+      "role": "AI Product Engineer",
+      "period": "August 2026 - Present",
+      "description": "Developing AI products and optimizing automation workflows to enhance financial and securities operations."
+    },
+    {
+      "company": "Siam Commercial Bank",
+      "role": "AI & Automation Engineer",
+      "period": "June 2026 - July 2026",
+      "description": "Worked on AI integration and automation processes to streamline banking operations."
+    },
+    {
+      "company": "Pixelmath",
+      "role": "Data Scientist",
+      "period": "January 2026 - Present",
+      "description": "Applying data science techniques to extract insights and build predictive models."
+    }
+  ],
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Phaolap Kulteera",
+    "jobTitle": "AI Product Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Yuanta Securities Thailand"
+    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "Siam Commercial Bank",
+        "roleName": "AI & Automation Engineer",
+        "startDate": "2026-06",
+        "endDate": "2026-07"
+      },
+      {
+        "@type": "Organization",
+        "name": "Pixelmath",
+        "roleName": "Data Scientist",
+        "startDate": "2026-01"
+      }
+    ]
+  }
+}
