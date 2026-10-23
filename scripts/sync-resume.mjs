@@ -11,8 +11,9 @@ const RESUME_PUBLIC_PATH = path.join(rootDir, "public", "Resume.pdf");
 const HASH_FILE_PATH = path.join(rootDir, "data", "resume-hash.txt");
 const EXPERIENCE_JSON_PATH = path.join(rootDir, "data", "experience.json");
 
-const R2_RESUME_URL = process.env.R2_RESUME_URL;
+const SUPABASE_RESUME_URL = process.env.SUPABASE_RESUME_URL || process.env.R2_RESUME_URL || process.env.RESUME_PUBLIC_URL;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
 const isForce = process.argv.includes("--force");
 
 /**
@@ -26,11 +27,11 @@ function calculateHash(buffer) {
  * Fetch or read PDF buffer
  */
 async function getResumeBuffer() {
-  if (R2_RESUME_URL) {
-    console.log(`[Sync] Fetching resume from Cloudflare R2: ${R2_RESUME_URL}`);
-    const response = await fetch(R2_RESUME_URL);
+  if (SUPABASE_RESUME_URL) {
+    console.log(`[Sync] Fetching resume from Supabase Storage: ${SUPABASE_RESUME_URL}`);
+    const response = await fetch(SUPABASE_RESUME_URL);
     if (!response.ok) {
-      throw new Error(`Failed to download from R2: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to download from Supabase Storage: ${response.status} ${response.statusText}`);
     }
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
@@ -44,11 +45,11 @@ async function getResumeBuffer() {
 
   // Fallback to local file
   if (fs.existsSync(RESUME_PUBLIC_PATH)) {
-    console.log(`[Sync] R2_RESUME_URL not provided. Reading local public/Resume.pdf`);
+    console.log(`[Sync] SUPABASE_RESUME_URL not provided. Reading local public/Resume.pdf`);
     return fs.readFileSync(RESUME_PUBLIC_PATH);
   }
 
-  throw new Error(`No resume found! Set R2_RESUME_URL or place Resume.pdf in public/Resume.pdf`);
+  throw new Error(`No resume found! Set SUPABASE_RESUME_URL or place Resume.pdf in public/Resume.pdf`);
 }
 
 /**
@@ -86,7 +87,7 @@ async function extractResumeContent(buffer) {
   }
 
   const base64Data = buffer.toString("base64");
-  const model = "gemini-2.0-flash";
+  const model = GEMINI_MODEL;
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
 
   const schema = {
@@ -137,7 +138,7 @@ Analyze the attached resume PDF document and extract:
 Preserve accurate dates, company names, and descriptive achievements. Return ONLY pure JSON matching the specified schema.
 `;
 
-  console.log(`[AI] Calling Gemini 2.0 Flash for structured resume extraction...`);
+  console.log(`[AI] Calling ${model} for structured resume extraction...`);
   const response = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
