@@ -1,53 +1,10 @@
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
+import experienceData from "@/data/experience.json";
+import type { ExperienceData } from "@/types/experience";
 
 export default function Experience() {
-  const experiences = [
-    {
-      company: "Yuanta Securities Thailand",
-      role: "AI Product Engineer",
-      period: "August 2026 - Present",
-      description: "Developing AI products and optimizing automation workflows to enhance financial and securities operations.",
-    },
-    {
-      company: "Siam Commercial Bank",
-      role: "AI & Automation Engineer",
-      period: "June 2026 - July 2026",
-      description: "Worked on AI integration and automation processes to streamline banking operations.",
-    },
-    {
-      company: "Pixelmath",
-      role: "Data Scientist",
-      period: "January 2026 - Present",
-      description: "Applying data science techniques to extract insights and build predictive models.",
-    },
-  ];
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Phaolap Kulteera",
-    "jobTitle": "AI Product Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Yuanta Securities Thailand"
-    },
-    "alumniOf": [
-      {
-        "@type": "Organization",
-        "name": "Siam Commercial Bank",
-        "roleName": "AI & Automation Engineer",
-        "startDate": "2026-06",
-        "endDate": "2026-07"
-      },
-      {
-        "@type": "Organization",
-        "name": "Pixelmath",
-        "roleName": "Data Scientist",
-        "startDate": "2026-01"
-      }
-    ]
-  };
+  const { experiences, jsonLd } = experienceData as ExperienceData;
 
   return (
     <section className="w-full py-16 z-20 relative" aria-labelledby="experience-heading">
