@@ -1,5 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+const RESUME_URL =
+  process.env.NEXT_PUBLIC_RESUME_URL ||
+  process.env.SUPABASE_RESUME_URL ||
+  "https://dubccshnzuayvwaiudox.supabase.co/storage/v1/object/public/portfolio-assets/Resume.pdf";
+
 export default function About() {
   return (
     <>
@@ -60,7 +65,7 @@ export default function About() {
           </div>
 
           <Link
-            href="/Resume.pdf"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 bg-green-500 text-white font-bold rounded-full shadow-lg border-2 border-green-600 transition-all duration-300 hover:bg-green-600 hover:shadow-xl hover:-translate-y-1 active:scale-95 text-lg inline-block"
