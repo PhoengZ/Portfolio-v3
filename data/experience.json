@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2026-10-23T21:16:00.000Z",
-  "resumeHash": "6e71b0eca637aed33d4337fda2c0df455952aebf3665086177328878a9509ed8",
+  "lastUpdated": "2026-10-23T15:23:38.658Z",
+  "resumeHash": "1ffcffbba470bdd2b859f1cbb3d276e04f950a53839599cbb9cd98ea08221944",
   "experiences": [
     {
       "company": "Yuanta Securities Thailand",
       "role": "AI Product Engineer",
-      "period": "August 2026 - Present",
-      "description": "Developing AI products and optimizing automation workflows to enhance financial and securities operations."
+      "period": "Aug 2026 - Present",
+      "description": "Architected an enterprise multi-agent financial platform using LangGraph and FastAPI, implementing adaptive routing between relational databases and knowledge graphs along with LLM guardrails."
     },
     {
-      "company": "Siam Commercial Bank",
-      "role": "AI & Automation Engineer",
-      "period": "June 2026 - July 2026",
-      "description": "Worked on AI integration and automation processes to streamline banking operations."
+      "company": "SCB",
+      "role": "AI Engineer & Automation Engineer",
+      "period": "Jun 2026 - Jul 2026",
+      "description": "Deployed an enterprise RAG chatbot and data pipelines using Databricks and Azure AI Search, while automating internal banking workflows via Python and Power Automate."
     },
     {
       "company": "Pixelmath",
       "role": "Data Scientist",
-      "period": "January 2026 - Present",
-      "description": "Applying data science techniques to extract insights and build predictive models."
+      "period": "Jan 2026 - Present",
+      "description": "Spearheaded marketing analytics by developing RFM segmentation models and cross-channel performance metrics from transaction and Meta ad data."
     }
   ],
   "jsonLd": {
@@ -33,8 +33,14 @@
     "alumniOf": [
       {
         "@type": "Organization",
-        "name": "Siam Commercial Bank",
-        "roleName": "AI & Automation Engineer",
+        "name": "Yuanta Securities Thailand",
+        "roleName": "AI Product Engineer",
+        "startDate": "2026-08"
+      },
+      {
+        "@type": "Organization",
+        "name": "SCB",
+        "roleName": "AI Engineer & Automation Engineer",
         "startDate": "2026-06",
         "endDate": "2026-07"
       },
