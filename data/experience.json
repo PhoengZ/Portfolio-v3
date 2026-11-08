@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2026-10-23T15:23:38.658Z",
-  "resumeHash": "1ffcffbba470bdd2b859f1cbb3d276e04f950a53839599cbb9cd98ea08221944",
+  "lastUpdated": "2026-11-08T05:09:47.540Z",
+  "resumeHash": "b80a14f8b0167ff002e78329afe71049ab54967c2263b5aeec256c4bf1308850",
   "experiences": [
     {
       "company": "Yuanta Securities Thailand",
       "role": "AI Product Engineer",
-      "period": "Aug 2026 - Present",
-      "description": "Architected an enterprise multi-agent financial platform using LangGraph and FastAPI, implementing adaptive routing between relational databases and knowledge graphs along with LLM guardrails."
+      "period": "August 2026 - Present",
+      "description": "Architected an enterprise multi-agent financial platform using LangGraph, FastAPI, PostgreSQL, and Neo4j, while establishing automated ETL pipelines and a 6-layer evaluation framework with Langfuse observability."
     },
     {
       "company": "SCB",
       "role": "AI Engineer & Automation Engineer",
-      "period": "Jun 2026 - Jul 2026",
-      "description": "Deployed an enterprise RAG chatbot and data pipelines using Databricks and Azure AI Search, while automating internal banking workflows via Python and Power Automate."
+      "period": "June 2026 - July 2026",
+      "description": "Engineered and deployed an enterprise RAG chatbot and data pipelines using Python, Databricks, and Azure AI Search, alongside entity resolution algorithms and automated workflow routing."
     },
     {
       "company": "Pixelmath",
       "role": "Data Scientist",
-      "period": "Jan 2026 - Present",
-      "description": "Spearheaded marketing analytics by developing RFM segmentation models and cross-channel performance metrics from transaction and Meta ad data."
+      "period": "January 2026 - Present",
+      "description": "Spearheaded marketing analytics by building RFM customer segmentation models and cross-channel performance metrics from transaction and Meta ad data to optimize retention and budget allocation."
     }
   ],
   "jsonLd": {
@@ -35,7 +35,8 @@
         "@type": "Organization",
         "name": "Yuanta Securities Thailand",
         "roleName": "AI Product Engineer",
-        "startDate": "2026-08"
+        "startDate": "2026-08",
+        "endDate": "Present"
       },
       {
         "@type": "Organization",
@@ -48,7 +49,8 @@
         "@type": "Organization",
         "name": "Pixelmath",
         "roleName": "Data Scientist",
-        "startDate": "2026-01"
+        "startDate": "2026-01",
+        "endDate": "Present"
       }
     ]
   }
